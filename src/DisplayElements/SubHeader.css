@@ -1,0 +1,23 @@
+.subHeader {
+  margin-bottom: 40px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+.subHeading-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: #4b5563;
+}
+

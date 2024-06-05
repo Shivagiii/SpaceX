@@ -1,0 +1,30 @@
+.border {
+  border-radius: 6px;
+  border: 1px solid #e4e4e7;
+}
+.displayBox {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 1px 3px 0px #0000001a;
+}
+.table {
+  min-height: 100%;
+  width: 100%;
+}
+
+.headRow {
+  font-family: Inter !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 12px !important;
+  text-align: center !important;
+  padding: 10px !important;
+}
+.row {
+  font-family: Inter !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 12px !important;
+  text-align: center !important;
+  padding: 13.5px !important;
+}
