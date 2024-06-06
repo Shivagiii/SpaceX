@@ -3,12 +3,12 @@
   border: 1px solid #e4e4e7;
 }
 .displayBox {
-  height: 100%;
+  height: 90%;
   width: 100%;
-  box-shadow: 0px 1px 3px 0px #0000001a;
+  
 }
 .table {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
 }
 

@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 function DisplayModal({selectedRow,handleClose,date}) {
 
  
-   console.log(selectedRow);
+  // console.log(selectedRow);
     
   return (
     <div id="myModal" className="modal">
