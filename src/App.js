@@ -7,6 +7,7 @@ import axios from "axios";
 function App() {
   const [displayData, setDisplayData] = useState([]);
   const [launcheType, setLauncheType] = useState("");
+  const [selectedRow,setSelectedRow] = useState("");
 
   async function fetchData(launcheType) {
     let newData = [];
@@ -37,6 +38,8 @@ function App() {
   useEffect(() => {
     fetchData(launcheType);
   }, [launcheType]);
+
+  console.log(selectedRow)
   return (
     <div className="App">
       <header className="App-header">
@@ -46,7 +49,7 @@ function App() {
             setLauncheType={setLauncheType}
             launcheType={launcheType}
           />
-          <DisplayTable displayData={displayData} />
+          <DisplayTable displayData={displayData} selectedRow={selectedRow} setSelectedRow={setSelectedRow} />
         </div>
       </header>
     </div>

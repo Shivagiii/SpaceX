@@ -8,10 +8,12 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Box
 } from "@mui/material";
+import DisplayModal from "./DisplayModal";
 
-function DisplayTable({ displayData }) {
-  
+function DisplayTable({ displayData,setSelectedRow,selectedRow }) {
+  const [open, setOpen] = React.useState(false);
   
   const month = [
     "January",
@@ -45,15 +47,39 @@ function DisplayTable({ displayData }) {
 
     return dateString;
   };
-  const TableData = ({ row }) => {
+
+  function handleModal(row) {
+    console.log("clicked");
+    document.getElementById('myModal').style.display='flex';
+    setSelectedRow(row);
+    
+
+    
+  }
+  function handleClose() {
+    console.log("...");
+    document.getElementById('myModal').style.display='none';
+    
+    
+
+    
+  }
+  
+ 
+  const TableData = ({ row,ind }) => {
     
       return (
         <TableRow
-          key={row.flight_number}
+          key={row.mission_name}
           sx={{
             "&:last-child td, &:last-child th": { border: 0 },
           }}
+          id={row.flight_number}
+          onClick={() => handleModal(row)}
         >
+         
+        
+      
           <TableCell className="row">{row.flight_number}</TableCell>
           <TableCell className="row">
             {createDate(row.launch_date_utc)}
@@ -100,15 +126,23 @@ function DisplayTable({ displayData }) {
               <TableCell className="headRow">Launch Status</TableCell>
             </TableRow>
           </TableHead>
+          <DisplayModal  handleClose={handleClose} selectedRow={selectedRow} date={createDate(selectedRow.launch_date_utc)}/>
           <TableBody>
             {   
             
             displayData.map((row) => (
-              <TableData row={row} />
+              
+              <TableData row={row}  key={row.mission_name} id={row.flight_number}
+              >
+             
+         
+               
+               </TableData>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+       
     </div>
   );
 }
