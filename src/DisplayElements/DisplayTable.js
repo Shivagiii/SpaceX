@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 
 function DisplayTable({ displayData }) {
+  
+  
   const month = [
     "January",
     "February",
@@ -40,8 +42,47 @@ function DisplayTable({ displayData }) {
       ":" +
       (d.getMinutes() < 10 ? "0" : "") +
       d.getMinutes();
-    console.log(d.getDate(), month[d.getMonth()]);
+
     return dateString;
+  };
+  const TableData = ({ row }) => {
+    
+      return (
+        <TableRow
+          key={row.flight_number}
+          sx={{
+            "&:last-child td, &:last-child th": { border: 0 },
+          }}
+        >
+          <TableCell className="row">{row.flight_number}</TableCell>
+          <TableCell className="row">
+            {createDate(row.launch_date_utc)}
+          </TableCell>
+          <TableCell className="row">{row.launch_site.site_name}</TableCell>
+          <TableCell className="row">{row.mission_name}</TableCell>
+          <TableCell className="row">
+            {row.rocket.second_stage.payloads[0].orbit}
+          </TableCell>
+          <TableCell className="chipRow ">
+            <div
+              className={
+                row.upcoming
+                  ? `upcoming chip`
+                  : row.launch_success
+                  ? `success chip`
+                  : `failure chip`
+              }
+            >
+              {row.upcoming
+                ? `Upcoming`
+                : row.launch_success
+                ? `Success`
+                : `Failure`}
+            </div>
+          </TableCell>
+          <TableCell className="row">{row.rocket.rocket_name}</TableCell>
+        </TableRow>
+      );
   };
 
   return (
@@ -60,30 +101,10 @@ function DisplayTable({ displayData }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {displayData.map((row) => (
-              <TableRow
-                key={row.flight_number}
-                sx={{
-                  "&:last-child td, &:last-child th": { border: 0 },
-                  height: "10%",
-                }}
-              >
-                <TableCell className="row">{row.flight_number}</TableCell>
-                <TableCell className="row">
-                  {createDate(row.launch_date_utc)}
-                </TableCell>
-                <TableCell className="row">
-                  {row.launch_site.site_name}
-                </TableCell>
-                <TableCell className="row">{row.mission_name}</TableCell>
-                <TableCell className="row">
-                  {row.rocket.second_stage.payloads[0].orbit}
-                </TableCell>
-                <TableCell className="row">
-                  {row.launch_success ? `Success` : `Failure`}
-                </TableCell>
-                <TableCell className="row">{row.rocket.rocket_name}</TableCell>
-              </TableRow>
+            {   
+            
+            displayData.map((row) => (
+              <TableData row={row} />
             ))}
           </TableBody>
         </Table>
