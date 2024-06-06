@@ -26,5 +26,47 @@
   font-weight: 400 !important;
   line-height: 12px !important;
   text-align: center !important;
-  padding: 13.5px !important;
+  padding: 10.5px !important;
+  
+  
+}
+.chipRow{
+  font-family: Inter !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  line-height: 12px !important;
+  text-align: center !important;
+  padding: 10px !important;
+  display: flex!important;
+  justify-content: center!important;
+
+}
+.success{
+ 
+  background: #DEF7EC;
+ 
+  color: green;
+
+}.failure{
+  background: #FDE2E1;
+ 
+
+  color: red;
+}
+.upcoming{
+  background: #FEF3C7;
+  color: #92400F;
+
+
+}
+.chip{
+ width: max-content;
+height: max-content;
+padding: 4px 9px;
+border-radius: 20px ;
+
+
+
+
+
 }
