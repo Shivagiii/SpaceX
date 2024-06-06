@@ -112,7 +112,7 @@ function DisplayTable({ displayData,setSelectedRow,selectedRow }) {
   };
 
   return (
-    <div className="border displayBox">
+    <div className=" displayBox">
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead sx={{ background: "#F4F5F7", height: 40 }}>
@@ -133,11 +133,7 @@ function DisplayTable({ displayData,setSelectedRow,selectedRow }) {
             displayData.map((row) => (
               
               <TableData row={row}  key={row.mission_name} id={row.flight_number}
-              >
-             
-         
-               
-               </TableData>
+              />
             ))}
           </TableBody>
         </Table>

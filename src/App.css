@@ -19,6 +19,12 @@
 }
 
 .mainBody{
-  height: 90vh;
-  padding: 60px 160px;
+  height: 95vh;
+  padding: 30px 160px;
+  display: flex;
+  flex-direction: column;
+}
+.pagination{
+  display: flex;
+  justify-content: right;
 }
