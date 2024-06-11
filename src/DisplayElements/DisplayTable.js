@@ -7,13 +7,12 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
-  Box
+  Paper
 } from "@mui/material";
 import DisplayModal from "./DisplayModal";
 
-function DisplayTable({ displayData,setSelectedRow,selectedRow }) {
-  const [open, setOpen] = React.useState(false);
+function DisplayTable({ displayData,setSelectedRow,selectedRow,dateS, setDate }) {
+ 
   
   const month = [
     "January",
@@ -126,7 +125,11 @@ function DisplayTable({ displayData,setSelectedRow,selectedRow }) {
               <TableCell className="headRow">Launch Status</TableCell>
             </TableRow>
           </TableHead>
-          <DisplayModal  handleClose={handleClose} selectedRow={selectedRow} date={createDate(selectedRow.launch_date_utc)}/>
+          <DisplayModal  handleClose={handleClose} 
+          selectedRow={selectedRow} 
+          date={createDate(selectedRow.launch_date_utc)  }
+            dateS={dateS}
+            setDate={setDate}/>
           <TableBody>
             {   
             

@@ -96,3 +96,25 @@ img {
   line-height: 14px;
   text-align: left;
 }
+
+.modal-content-date{
+    background-color: #fefefe;
+    color: black;
+    border: 1px solid #888;
+    width: 60%;
+    height: 60%;
+
+    border-radius: 6px;
+    padding: 2px;
+
+}
+.rdrDateDisplayWrapper {
+  display: none;
+}
+.rdrMonthAndYearWrapper{
+  display: none;
+}
+.rdrDateRangePickerWrapper{
+  height: 100%;
+  width: 100%;
+}

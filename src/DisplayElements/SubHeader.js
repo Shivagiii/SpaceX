@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SubHeader.css";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import DisplayModal from "./DisplayModal";
 
-function SubHeader({setLauncheType,launcheType}) {
+function SubHeader({setLauncheType,launcheType,dateS}) {
+  const [open,setModalOpen] = useState(false);
+  function openDateModal(){
+    console.log("clickedd");
+    document.getElementById('myModal2').style.display='flex';
+    setModalOpen(true);
+  }
+ 
   return (
     <div className="subHeader">
-      <button className="subHeading-buttons">
+      <button className="subHeading-buttons" onClick={openDateModal}>
         <CalendarTodayOutlinedIcon />
-        <div>Past 6 months </div> <KeyboardArrowDownOutlinedIcon />{" "}
+        <div>{dateS[0].label} </div> <KeyboardArrowDownOutlinedIcon />{" "}
       </button>
+      
       <button className="subHeading-buttons">
     
         <label for="launches">
