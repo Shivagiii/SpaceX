@@ -4,7 +4,9 @@ import DisplayTable from "./DisplayElements/DisplayTable";
 import SubHeader from "./DisplayElements/SubHeader";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css';
+
 
 function App() {
   const [dataD, setData] = useState([]);
@@ -12,6 +14,14 @@ function App() {
   const [launcheType, setLauncheType] = useState("");
   const [selectedRow, setSelectedRow] = useState("");
   const [pageNo, setPageNo] = useState(1);
+  const [dateS, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(), // Use null if you don't want to have endDate
+      key: "selection",
+      label:"Past 6 Months"
+    },
+  ]);
 
   async function fetchData(launcheType) {
     let url = "https://api.spacexdata.com/v3/launches/";
@@ -65,11 +75,14 @@ function App() {
           <SubHeader
             setLauncheType={setLauncheType}
             launcheType={launcheType}
+            dateS={dateS}
           />
           <DisplayTable
             displayData={displayData}
             selectedRow={selectedRow}
             setSelectedRow={setSelectedRow}
+            dateS={dateS}
+            setDate={setDate}
           />
           <div className="pagination"><Pagination
             count={Math.ceil(dataD.length / 10)}
